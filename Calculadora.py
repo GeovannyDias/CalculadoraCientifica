@@ -137,4 +137,45 @@ btn7 = Button(cal,bd = 10, text = '=', command=lambda:btnClick(1)).grid(row=4,co
 
 cal.mainloop()
 
+#Ivonne Vega
+from tkinter import *
+
+def bntClick(num):
+    global operacion
+    operacion=operacion + str(num)
+    txt_Input.set(operacion)
+
+tk =Tk()
+tk.title('Calculadora')
+operacion =''
+txt_Input=StringVar()
+
+txtDisplay = Entry(tk,textvariable=txt_Input, insertwidth=8).grid(columnspan=8)
+
+
+    
+btn1= Button(tk,text="1", command=lambda:bntClick(1)).grid(row=4, column=1)
+
+btn2= Button(tk,text="2", command=lambda:bntClick(2)).grid(row=4, column=2)
+
+btn3= Button(tk,text="3", command=lambda:bntClick(3)).grid(row=4, column=3)
+
+btn4= Button(tk,text="4",command=lambda:bntClick(4)).grid(row=4, column=4)
+
+btn5= Button(tk,text="5",command=lambda:bntClick(5)).grid(row=5, column=1)
+
+btn6= Button(tk,text="6",command=lambda:bntClick(6)).grid(row=5, column=2)
+
+btn7= Button(tk,text="7",command=lambda:bntClick(7)).grid(row=5, column=3)
+
+btn8= Button(tk,text="8",command=lambda:bntClick(8)).grid(row=5, column=4)
+
+btn9= Button(tk,text="9",command=lambda:bntClick(9)).grid(row=6, column=1)
+
+btn0= Button(tk,text="0",command=lambda:bntClick(0)).grid(row=6, column=2)
+
+btnSum= Button(tk,text="Sumar",command=lambda:bntClick(0))
+btnSum.grid(row=8, column=1)
+
+mainloop()
 

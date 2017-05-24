@@ -179,3 +179,56 @@ btnSum.grid(row=8, column=1)
 
 mainloop()
 
+###############################################################################
+#Fernanda Cordova
+from tkinter import *
+
+
+def btnClick(numeros):
+    global operacion
+    operacion = operacion + str(numeros)
+    text_Input.set(operacion)
+
+
+tk = Tk()
+tk.title('calculadora')
+operacion = ""
+text_Input = StringVar()
+txtDisplay = Entry(tk, textvariable=text_Input, bd=30, insertwidth=4).grid(columnspan=4)
+
+btn1 = Button(tk, text=" 1 ", command=lambda: btnClick(1))
+btn1.grid(row=1, column=1)
+
+btn2 = Button(tk, text=" 2 ", command=lambda: btnClick(2))
+btn2.grid(row=1, column=2)
+
+btn3 = Button(tk, text=" 3 ", command=lambda: btnClick(3))
+btn3.grid(row=1, column=3)
+
+btn4 = Button(tk, text=" 4 ", command=lambda: btnClick(4))
+btn4.grid(row=2, column=1)
+
+btn5 = Button(tk, text=" 5 ", command=lambda: btnClick(5))
+btn5.grid(row=2, column=2)
+
+btn6 = Button(tk, text=" 6 ", command=lambda: btnClick(6))
+btn6.grid(row=2, column=3)
+
+btn7 = Button(tk, text=" 7 ", command=lambda: btnClick(7))
+btn7.grid(row=3, column=1)
+
+btn8 = Button(tk, text=" 8 ", command=lambda: btnClick(8))
+btn8.grid(row=3, column=2)
+
+btn9 = Button(tk, text=" 9 ", command=lambda: btnClick(9))
+btn9.grid(row=3, column=3)
+
+btn10 = Button(tk, text=" - ", command=lambda: btnClick("-"))
+btn10.grid(row=4, column=1)
+
+btn11 = Button(tk, text=" + ", command=lambda: btnClick(" + "))
+btn11.grid(row=4, column=2)
+
+btn12 = Button(tk, text=" = ", command=lambda: btnClick(" = "))
+btn12.grid(row=4, column=3)
+mainloop()

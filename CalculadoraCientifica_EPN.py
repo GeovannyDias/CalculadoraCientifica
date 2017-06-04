@@ -1,56 +1,116 @@
+
+##############################################################
+######################CALCULADORA#############################
+
 from tkinter import*
-root = Tk()
-root.geometry("200x300")
-root.title('Calculator Científica - EPN')
+import math
 
-fr1 = Frame(root)
-fr1.pack(side = TOP)
-fr2 = Frame(root)
-fr2.pack()
+cal = Tk()
+op = ''
+x =''
+ver = False
 
-operador = ''
+cal.geometry("230x280")
+cal.title('Calculator Científica - EPN')
+
+operator = ''
 text_Input = StringVar()
+def reiniciar():
+    ver=True
+    op = ""
+    operator1 = ""
+    operator = ""
 
+    
+def otr(operator1):
+    global op
+    global ver
+    ver = True
+    op = operator1
+    text_Input.set(operator1)
+    
+      
+def BtnOperacion(numbers):
+    global operator
+    operator = operator + str(numbers)
+    text_Input.set(op + operator)
+    
 
-def btnClick(variable):
-    global operador
-    operador += str(variable)
-    text_Input.set(operador)
-
-def btnClearDisplay():
-    global operador
-    operador=""
+def BorrarDatos():
+    global operator
+    operator1 = ''
+    operator = ""
     text_Input.set("")
+    op = ""
+    ver = False
 
 def btnResultado():
-    global operador
-    resultado = str(eval(operador))
-    text_Input.set(resultado)
-    operador = resultado
+    global operator
+    x = "sen("
+    y = "cos("
+    z = "tan("
+    if ver == True:
+        if op == x:
+            s=str(math.sin(math.radians(int(operator))))
+            text_Input.set(s)
+            operator = ""
+        elif op ==y :
+            s=str(math.cos(math.radians(int(operator))))
+            text_Input.set(s)
+            operator = ""
+        elif op == z:
+            s=str(math.tan(math.radians(int(operator))))
+            text_Input.set(s)
+            operator = ""
+        
+        
+    else:
+        s=str(eval(operator))
+        text_Input.set(s)
+
+        operator = ""
+    
+
+txt_Display = Entry(cal, textvariable = text_Input, bd = 20, insertwidth = 4).grid(columnspan=100)
+
+####################################################################################################
+
+btnaSie = Button(cal, bd =15 , text= 7, command=lambda:BtnOperacion(7)).grid(row=1,column=0)
+btnOch = Button(cal, bd =15 , text= 8, command=lambda:BtnOperacion(8)).grid(row=1,column=1)
+btnNue = Button(cal, bd =15 , text= 9, command=lambda:BtnOperacion(9)).grid(row=1,column=2)
+btnast = Button(cal, bd =15 , text= '*', command=lambda:BtnOperacion('*')).grid(row=1,column=3)
+btnDiv = Button(cal, bd =15 , text= '/', command=lambda:BtnOperacion('/')).grid(row=1,column=4)
 
 
-txt_Display = Entry(fr1,textvariable=text_Input, bd = 30, insertwidth = 4).grid(columnspan=4)
-btn = Button(fr2,bd = 10, text = '*', command=lambda:btnClick('*')).grid(row=0,column=3)
-btn = Button(fr2,bd = 10, text = '+', command=lambda:btnClick('+')).grid(row=1,column=3)
-btn = Button(fr2,bd = 10, text = '-', command=lambda:btnClick('-')).grid(row=2,column=3)
-btn = Button(fr2,bd = 10, text = '/', command=lambda:btnClick('/')).grid(row=3,column=3)
+####################################################################################################
 
-btn = Button(fr2,bd = 10, text = '7', command=lambda:btnClick(7)).grid(row=0,column=0)
-btn = Button(fr2,bd = 10, text = '8', command=lambda:btnClick(8)).grid(row=0,column=1)
-btn = Button(fr2,bd = 10, text = '9', command=lambda:btnClick(9)).grid(row=0,column=2)
-btn = Button(fr2,bd = 10, text = '4', command=lambda:btnClick(4)).grid(row=1,column=0)
-btn = Button(fr2,bd = 10, text = '5', command=lambda:btnClick(5)).grid(row=1,column=1)
-btn = Button(fr2,bd = 10, text = '6', command=lambda:btnClick(6)).grid(row=1,column=2)
-btn = Button(fr2,bd = 10, text = '3', command=lambda:btnClick(3)).grid(row=2,column=0)
-btn = Button(fr2,bd = 10, text = '2', command=lambda:btnClick(2)).grid(row=2,column=1)
-btn = Button(fr2,bd = 10, text = '1', command=lambda:btnClick(1)).grid(row=2,column=2)
-btn = Button(fr2,bd = 10, text = '').grid(row=3,column=0)
-btn = Button(fr2,bd = 10, text = '0', command=lambda:btnClick(0)).grid(row=3,column=1)
-btn = Button(fr2,bd = 10, text = '.', command=lambda:btnClick('.')).grid(row=3,column=2)
+btnCuat = Button(cal, bd =15 , text= 4, command=lambda:BtnOperacion(4)).grid(row=2,column=0)
+btnCinc = Button(cal, bd =15 , text= 5, command=lambda:BtnOperacion(5)).grid(row=2,column=1)
+btnSei = Button(cal, bd =15 , text= 6, command=lambda:BtnOperacion(6)).grid(row=2,column=2)
+btnSum = Button(cal, bd =15 , text= '+', command=lambda:BtnOperacion('+')).grid(row=2,column=3)
+btnClear = Button(cal, bd =15 , text= 'C', command=BorrarDatos).grid(row=2,column=4)
 
-btn = Button(fr2,bd = 10, text = '', command=lambda:btnClick('')).grid(row=4,column=0)
-btn = Button(fr2,bd = 10, text = '', command=lambda:btnClick('')).grid(row=4,column=1)
-btn = Button(fr2,bd = 10, text = 'C', command=btnClearDisplay).grid(row=4,column=2)
-btn = Button(fr2,bd = 10, text = '=', command=lambda:btnResultado()).grid(row=4,column=3)
+####################################################################################################
 
-root.mainloop()
+btnUn = Button(cal, bd =15 , text= 1, command=lambda:BtnOperacion(1)).grid(row=3,column=0)
+btnDos = Button(cal, bd =15 , text= 2, command=lambda:BtnOperacion(2)).grid(row=3,column=1)
+btnTres = Button(cal, bd =15 , text= 3, command=lambda:BtnOperacion(3)).grid(row=3,column=2)
+btnRes = Button(cal, bd =15, text= '-', command=lambda:BtnOperacion('-')).grid(row=3,column=3)
+btnPto = Button(cal, bd =15, text= '.', command=lambda:BtnOperacion('.')).grid(row=3,column=4)
+btnCer = Button(cal, bd =8 , text= 0, command=lambda:BtnOperacion(0)).grid(row=4,column=0)
+
+####################################################################################################
+                                                                            
+btnSen = Button(cal, bd =7 , text= 'sin(', command=lambda:otr('sen(')).grid(row=4,column=1)
+btnCos = Button(cal, bd =7 , text= 'cos(', command=lambda:otr('cos(')).grid(row=4,column=2)
+btnTan = Button(cal, bd =7 , text= 'tan(', command=lambda:otr('tan(')).grid(row=4,column=3)
+btnIgual = Button(cal, bd =9.5, text= '=', command=btnResultado).grid(row=4,column=4)
+cal.mainloop()
+
+
+#LAS FUNCIONES SEN, COS, TAN, YA SE CALCULAN HAY QUE VALIDAR CUANDO CADA FUNCION TOMA VALOR DE
+#0,90,180,270,360 PARA CADA UNA DE ELLAS, Y ADEMAS FALTA LA VALIDADCION DE QUE DESPUES DE INGRESAR
+#UNA FUNCION TRIGONOMETRICA Y QUE DE EL RESULTADO, AL MOMETNO DE APLASTAR UN NUMERO NO MARQUE NUEVAMENETE LA FUNCION
+#PARA QUE ENTIENDAN MEJOR PRIMERO EJECUTEN UNA FUNCION TRIGONOMETRICA, LUEGO UNA SUMA Y VERAN LO QUE PASA
+
+

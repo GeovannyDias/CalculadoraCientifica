@@ -1,2 +1,2 @@
-# TallerCalculadora
-Realizar una calculadora
+# TallerCalculadoraCientifica
+Realizar una Calculadora Científica

@@ -1,2 +1,2 @@
-﻿# TallerCalculadoraCientifica
+﻿#CalculadoraCientifica
 Realizar una Calculadora Científica..!!

@@ -10,9 +10,9 @@ op = ''
 x =''
 ver = False
 
-cal.geometry("230x280")
+cal.geometry("230x280+300+250")
 cal.title('Calculator Científica - EPN')
-
+cal.resizable(width=False, height=False)
 operator = ''
 text_Input = StringVar()
 def reiniciar():
@@ -75,36 +75,36 @@ txt_Display = Entry(cal, textvariable = text_Input, bd = 20, insertwidth = 4).gr
 
 ####################################################################################################
 
-btnaSie = Button(cal, bd =15 , text= 7, command=lambda:BtnOperacion(7)).grid(row=1,column=0)
-btnOch = Button(cal, bd =15 , text= 8, command=lambda:BtnOperacion(8)).grid(row=1,column=1)
-btnNue = Button(cal, bd =15 , text= 9, command=lambda:BtnOperacion(9)).grid(row=1,column=2)
-btnast = Button(cal, bd =15 , text= '*', command=lambda:BtnOperacion('*')).grid(row=1,column=3)
-btnDiv = Button(cal, bd =15 , text= '/', command=lambda:BtnOperacion('/')).grid(row=1,column=4)
+btnaSie = Button(cal, bd =15 , text= 7, relief="groove",command=lambda:BtnOperacion(7)).grid(row=1,column=0)
+btnOch = Button(cal, bd =15 , text= 8, relief="groove",command=lambda:BtnOperacion(8)).grid(row=1,column=1)
+btnNue = Button(cal, bd =15 , text= 9, relief="groove",command=lambda:BtnOperacion(9)).grid(row=1,column=2)
+btnast = Button(cal, bd =15 , text= '*',relief="groove", command=lambda:BtnOperacion('*')).grid(row=1,column=3)
+btnDiv = Button(cal, bd =15 , text= '/', relief="groove",command=lambda:BtnOperacion('/')).grid(row=1,column=4)
 
 
 ####################################################################################################
 
-btnCuat = Button(cal, bd =15 , text= 4, command=lambda:BtnOperacion(4)).grid(row=2,column=0)
-btnCinc = Button(cal, bd =15 , text= 5, command=lambda:BtnOperacion(5)).grid(row=2,column=1)
-btnSei = Button(cal, bd =15 , text= 6, command=lambda:BtnOperacion(6)).grid(row=2,column=2)
-btnSum = Button(cal, bd =15 , text= '+', command=lambda:BtnOperacion('+')).grid(row=2,column=3)
-btnClear = Button(cal, bd =15 , text= 'C', command=BorrarDatos).grid(row=2,column=4)
+btnCuat = Button(cal, bd =15 , text= 4, relief="groove",command=lambda:BtnOperacion(4)).grid(row=2,column=0)
+btnCinc = Button(cal, bd =15 , text= 5, relief="groove",command=lambda:BtnOperacion(5)).grid(row=2,column=1)
+btnSei = Button(cal, bd =15 , text= 6, relief="groove",command=lambda:BtnOperacion(6)).grid(row=2,column=2)
+btnSum = Button(cal, bd =15 , text= '+',relief="groove", command=lambda:BtnOperacion('+')).grid(row=2,column=3)
+btnClear = Button(cal, bd =15 , text= 'C', relief="groove",command=BorrarDatos).grid(row=2,column=4)
 
 ####################################################################################################
 
-btnUn = Button(cal, bd =15 , text= 1, command=lambda:BtnOperacion(1)).grid(row=3,column=0)
-btnDos = Button(cal, bd =15 , text= 2, command=lambda:BtnOperacion(2)).grid(row=3,column=1)
-btnTres = Button(cal, bd =15 , text= 3, command=lambda:BtnOperacion(3)).grid(row=3,column=2)
-btnRes = Button(cal, bd =15, text= '-', command=lambda:BtnOperacion('-')).grid(row=3,column=3)
-btnPto = Button(cal, bd =15, text= '.', command=lambda:BtnOperacion('.')).grid(row=3,column=4)
-btnCer = Button(cal, bd =8 , text= 0, command=lambda:BtnOperacion(0)).grid(row=4,column=0)
+btnUn = Button(cal, bd =15 , text= 1, relief="groove",command=lambda:BtnOperacion(1)).grid(row=3,column=0)
+btnDos = Button(cal, bd =15 , text= 2,relief="groove", command=lambda:BtnOperacion(2)).grid(row=3,column=1)
+btnTres = Button(cal, bd =15 , text= 3,relief="groove", command=lambda:BtnOperacion(3)).grid(row=3,column=2)
+btnRes = Button(cal, bd =15, text= '-',relief="groove",command=lambda:BtnOperacion('-')).grid(row=3,column=3)
+btnPto = Button(cal, bd =15, text= '.',relief="groove", command=lambda:BtnOperacion('.')).grid(row=3,column=4)
+btnCer = Button(cal, bd =9 , text= 0,relief="groove", command=lambda:BtnOperacion(0)).grid(row=4,column=0)
 
 ####################################################################################################
                                                                             
-btnSen = Button(cal, bd =7 , text= 'sin(', command=lambda:otr('sen(')).grid(row=4,column=1)
-btnCos = Button(cal, bd =7 , text= 'cos(', command=lambda:otr('cos(')).grid(row=4,column=2)
-btnTan = Button(cal, bd =7 , text= 'tan(', command=lambda:otr('tan(')).grid(row=4,column=3)
-btnIgual = Button(cal, bd =9.5, text= '=', command=btnResultado).grid(row=4,column=4)
+btnSen = Button(cal, bd =7 , text= 'sin(',relief="groove", command=lambda:otr('sen(')).grid(row=4,column=1)
+btnCos = Button(cal, bd =7 , text= 'cos(',relief="groove", command=lambda:otr('cos(')).grid(row=4,column=2)
+btnTan = Button(cal, bd =7 , text= 'tan(',relief="groove", command=lambda:otr('tan(')).grid(row=4,column=3)
+btnIgual = Button(cal, bd =9.5, text= '=', relief="groove",command=btnResultado).grid(row=4,column=4)
 cal.mainloop()
 
 

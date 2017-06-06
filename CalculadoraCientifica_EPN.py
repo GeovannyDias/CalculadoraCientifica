@@ -56,6 +56,40 @@ def btnClearDisplay():
                                 #FUNCIONES ALTERNATIVAS
 #==========================================================================================
 
+def btnEliminarChar():
+    global operador
+    if operador !='':
+        operador = operador.rstrip(operador[-1])#validar
+        text_Input.set(operador)
+
+def btnParentesis(paren):
+    global p
+    global operador
+    p = operador.count('(')
+    if paren=='(':
+        btnClick('(')
+        p += 1
+    else:
+        if p > operador.count(')'):
+            btnClick(')')
+            p -= 1
+
+def btnFactorial():
+    global operador
+    try:
+        aux = int(operador)
+        operador +='!'
+        text_Input.set(operador)
+        operador =str(factorial(aux))
+    except SyntaxError:
+        text_Input.set("Syntax Error")
+        operador = ''
+    except ValueError:
+        text_Input.set("Value Error")
+        operador = ''
+
+
+
 
 
 

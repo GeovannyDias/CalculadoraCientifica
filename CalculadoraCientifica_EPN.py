@@ -52,10 +52,7 @@ def btnClearDisplay():
     operador = ''
     text_Input.set('')
 
-def btnFunTrigonometrica(tecla):
-    global evaluarFun
-    btnClick(tecla)
-    evaluarFun=True
+
 
 #==========================================================================================
                                 #FUNCIONES ALTERNATIVAS
@@ -94,7 +91,19 @@ def btnFactorial():
         operador = ''
 
 
+def btnFunTrigonometrica(tecla):
+    global evaluarFun
+    btnClick(tecla)
+    evaluarFun=True
 
+def btnPorcentaje(tecla):
+    global operador
+    global validar
+    try:
+        aux = int(operador)/100
+        operador -= str(tecla)
+        text_I
+        
 
 
 

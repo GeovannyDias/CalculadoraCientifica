@@ -49,6 +49,9 @@ def btnResultado():
     x = "sen("
     y = "cos("
     z = "tan("
+    a = "cotan("
+    b = "cec("
+    c = "csc("
     if ver == True:
         if op == x:
             s=str(math.sin(math.radians(int(operator))))
@@ -62,7 +65,18 @@ def btnResultado():
             s=str(math.tan(math.radians(int(operator))))
             text_Input.set(s)
             operator = ""
-        
+        elif op == a:
+            s = str(math.atan(math.radians(int(operator))))
+            text_Input.set(s)
+            operator = ""
+        elif op == b:
+            s = str(math.acos(math.radians(int(operator))))
+            text_Input.set(s)
+            operator = ""
+        elif op == c:
+            s = str(math.asin(math.radians(int(operator))))
+            text_Input.set(s)
+            operator = ""
         
     else:
         s=str(eval(operator))

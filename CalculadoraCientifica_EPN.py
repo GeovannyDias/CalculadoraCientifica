@@ -32,6 +32,7 @@ validar = False
 evaluarFun = False
 validarMemoria = False
 memoria = ''
+auxM = ''
 
 def btnClick(tecla):
     global operador
@@ -56,11 +57,14 @@ def btnClearDisplay():
                                 #FUNCIONES ALTERNATIVAS
 #==========================================================================================
 
+
 def btnEliminarChar():
     global operador
     if operador !='':
-        operador = operador.rstrip(operador[-1])#validar
+        operador = operador[:len(operador)-1]
+        #operador = operador.rstrip(operador[-1])
         text_Input.set(operador)
+
 
 def btnParentesis(paren):
     global p
@@ -92,14 +96,14 @@ def btnFactorial():
 def btnFunTrigonometrica(tecla):
     global evaluarFun
     btnClick(tecla)
-    evaluarFun=True
+    evaluarFun = True
 
 def btnPorcentaje(tecla):
     global operador
     global validar
     try:
         aux = int(operador)/100
-        operador -= str(tecla)
+        operador +=str(tecla)
         text_Input.set(operador)
         operador=str(aux)
         validar = True
@@ -110,43 +114,43 @@ def btnPorcentaje(tecla):
 def btnMemoria(teclaM):#Estructura para almacenar en memoria
     global operador
     global memoria
-    global validarMemoria#Opcional
+    global validar
+    #global validarMemoria#Opcional
+    global auxM
     try:
-        aux = eval(operador)
+
         if teclaM == 'MC':
-            pass
+            auxM = ''
         elif teclaM == 'MR':
-            pass
+
+            if operador !='':
+                if operador[-1] != '+' and operador[-1] != '-' and operador[-1] != '*' and operador[-1] != '/' \
+                        and operador[-1] != '**2' and operador[-1] != '**3':
+                    btnClearDisplay()
+
+            btnClick(auxM)
+            validar = True
+
         if teclaM == 'MS':
-            pass
+            if operador !='':
+                auxM = str(float(operador))
+                btnClearDisplay()
+
         elif teclaM == 'M+':
-            pass
+            auxM = str(float(auxM)+float(operador))
         if teclaM == 'M-':
-            pass
+            auxM = str(float(auxM) - float(operador))
 
-        pass
     except Exception:
-        pass
-
-
-
-    memoria = operador
-
-
-
-
-
-
-
-
-
-
+        text_Input.set("Error al Almacenar en Memoria")
+        operador = ''
 
 
 
 
 #==========================================================================================
 #==========================================================================================
+
 def btnResultado():
     global validar
     global evaluarFun
@@ -156,11 +160,12 @@ def btnResultado():
         if operador == "":
             btnClearDisplay()
         else:
+            print(evaluarFun)
             npa = operador.count('(')
             npc = operador.count(')')
             np = npa-npc
             if np !=0:
-                if evaluarFun == False:
+                if evaluarFun == False:#Se realiza si no se trabaja con Funciones Trigonometricas
                     char = '*('
                     operador = operador.split('(')
                     operador = char.join(operador)
@@ -171,6 +176,16 @@ def btnResultado():
                 else:
                     for i in range(np):
                         operador +=')'
+            elif npa > 0:
+                if evaluarFun == False:#Se realiza si no se trabaja con Funciones Trigonometricas
+                    char = '*('
+                    operador = operador.split('(')
+                    operador = char.join(operador)
+                    if operador[0] == '*':
+                        operador = operador.lstrip(operador[0])
+                    for i in range(np):
+                        operador += ')'
+
             resultado = str(eval(operador))
             if resultado == "()":
                 resultado = ""
@@ -193,7 +208,6 @@ def btnResultado():
     except Exception:
         text_Input.set("Error")
         operador = ''
-
 
 
 #==========================================================================================
@@ -259,12 +273,6 @@ btn = Button(calRight, bd=10, text='M-', width=4, command=lambda: btnMemoria('M-
 
 
 root.mainloop()
-
-
-
-
-
-
 
 
 

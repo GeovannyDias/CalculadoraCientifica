@@ -52,6 +52,11 @@ def btnClearDisplay():
     operador = ''
     text_Input.set('')
 
+def btnFunTrigonometrica(tecla):
+    global evaluarFun
+    btnClick(tecla)
+    evaluarFun=True
+
 #==========================================================================================
                                 #FUNCIONES ALTERNATIVAS
 #==========================================================================================

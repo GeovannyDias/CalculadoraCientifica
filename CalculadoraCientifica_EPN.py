@@ -1,6 +1,5 @@
 #=========================================================================
 """IMPORTAR LIBRERIA"""
-from distutils import command
 from tkinter import *
 from math import*
 
@@ -13,16 +12,16 @@ root.title('Calculadora Científica - EPN')
                                 #PANELES
 #==========================================================================================
 frame = Frame(root, bd=4, relief="groove",bg = "black")#gray, dark red, black
-frame.pack(fill=BOTH, padx=5, pady=5) #side = BOTTOM
+frame.pack( padx=5, pady=5) #side = BOTTOM
 
 calTop = Frame(frame, bd=4, relief="groove",bg = "black")
-calTop.pack(fill=BOTH, padx=5, pady=5)
+calTop.pack(padx=5, pady=5)
 
 calLeft = Frame(frame, bd=4, width=500, height=300, relief="groove",bg = "black")
-calLeft.pack(fill=BOTH, padx=5, pady=5, ipadx=1, ipady=1, side = LEFT)
+calLeft.pack(padx=5, pady=5, ipadx=1, ipady=1, side = LEFT)
 
 calRight = Frame(frame, bd=4, width=500, height=300, relief="groove",bg = "black")
-calRight.pack(fill=BOTH, padx=5, pady=5, ipadx=1, ipady=1,side = RIGHT)
+calRight.pack(padx=5, pady=5, ipadx=1, ipady=1,side = RIGHT)
 #==========================================================================================
 
 operador = ''
@@ -62,7 +61,6 @@ def btnEliminarChar():
     global operador
     if operador !='':
         operador = operador[:len(operador)-1]
-        #operador = operador.rstrip(operador[-1])
         text_Input.set(operador)
 
 
@@ -85,9 +83,6 @@ def btnFactorial():
         operador +='!'
         text_Input.set(operador)
         operador =str(factorial(aux))
-    except SyntaxError:
-        text_Input.set("Syntax Error")
-        operador = ''
     except ValueError:
         text_Input.set("Value Error")
         operador = ''
@@ -115,7 +110,6 @@ def btnMemoria(teclaM):#Estructura para almacenar en memoria
     global operador
     global memoria
     global validar
-    #global validarMemoria#Opcional
     global auxM
     try:
 
@@ -160,7 +154,6 @@ def btnResultado():
         if operador == "":
             btnClearDisplay()
         else:
-            print(evaluarFun)
             npa = operador.count('(')
             npc = operador.count(')')
             np = npa-npc

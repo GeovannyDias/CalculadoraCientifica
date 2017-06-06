@@ -102,8 +102,37 @@ def btnPorcentaje(tecla):
     try:
         aux = int(operador)/100
         operador -= str(tecla)
-        text_I
-        
+        text_Input.set(operador)
+        operador=str(aux)
+        validar = True
+    except ValueError:
+        text_Input.set("Value Error")
+        operador = ''
+
+def btnMemoria(teclaM):#Estructura para almacenar en memoria
+    global operador
+    global memoria
+    global validarMemoria#Opcional
+    try:
+        aux = eval(operador)
+        if teclaM == 'MC':
+            pass
+        elif teclaM == 'MR':
+            pass
+        if teclaM == 'MS':
+            pass
+        elif teclaM == 'M+':
+            pass
+        if teclaM == 'M-':
+            pass
+
+        pass
+    except Exception:
+        pass
+
+
+
+    memoria = operador
 
 
 

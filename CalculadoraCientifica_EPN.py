@@ -10,9 +10,11 @@ op = ''
 x =''
 ver = False
 
-cal.geometry("230x280+300+250")
+cal.geometry("255x310+300+250")
 cal.title('Calculator Científica - EPN')
 cal.resizable(width=False, height=False)
+cal.config(bg="blue")
+
 operator = ''
 text_Input = StringVar()
 def reiniciar():
@@ -49,9 +51,9 @@ def btnResultado():
     x = "sen("
     y = "cos("
     z = "tan("
-    a = "cotan("
-    b = "cec("
-    c = "csc("
+    a = "tan-1("
+    b = "cos-1("
+    c = "sen-1("
     if ver == True:
         if op == x:
             s=str(math.sin(math.radians(int(operator))))
@@ -111,17 +113,17 @@ btnDos = Button(cal, bd =15 , text= 2,relief="groove", command=lambda:BtnOperaci
 btnTres = Button(cal, bd =15 , text= 3,relief="groove", command=lambda:BtnOperacion(3)).grid(row=3,column=2)
 btnRes = Button(cal, bd =15, text= '-',relief="groove",command=lambda:BtnOperacion('-')).grid(row=3,column=3)
 btnPto = Button(cal, bd =15, text= '.',relief="groove", command=lambda:BtnOperacion('.')).grid(row=3,column=4)
-btnCer = Button(cal, bd =9 , text= 0,relief="groove", command=lambda:BtnOperacion(0)).grid(row=4,column=0)
+btnCer = Button(cal, bd =15 , text= 0,relief="groove", command=lambda:BtnOperacion(0)).grid(row=4,column=0)
 
 ####################################################################################################
                                                                             
 btnSen = Button(cal, bd =7 , text= 'sin(',relief="groove", command=lambda:otr('sen(')).grid(row=4,column=1)
 btnCos = Button(cal, bd =7 , text= 'cos(',relief="groove", command=lambda:otr('cos(')).grid(row=4,column=2)
 btnTan = Button(cal, bd =7 , text= 'tan(',relief="groove", command=lambda:otr('tan(')).grid(row=4,column=3)
-btnTan = Button(cal, bd =7 , text= 'Sen-1(',relief="groove", command=lambda:otr('sen-1')).grid(row=5,column=1)
-btnTan = Button(cal, bd =7 , text= 'Cos-1(',relief="groove", command=lambda:otr('cos-1')).grid(row=5,column=2)
-btnTan = Button(cal, bd =7 , text= 'Tan-1(',relief="groove", command=lambda:otr('tan-1')).grid(row=5,column=3)
-btnIgual = Button(cal, bd =9.5, text= '=', relief="groove",command=btnResultado).grid(row=4,column=4)
+btnTan = Button(cal, bd =7 , text= 'Sen-1(',relief="groove", command=lambda:otr('sen-1(')).grid(row=5,column=1)
+btnTan = Button(cal, bd =7 , text= 'Cos-1(',relief="groove", command=lambda:otr('cos-1(')).grid(row=5,column=2)
+btnTan = Button(cal, bd =7 , text= 'Tan-1(',relief="groove", command=lambda:otr('tan-1(')).grid(row=5,column=3)
+btnIgual = Button(cal, bd =10.5, text= '=', relief="groove",command=btnResultado).grid(row=4,column=4)
 cal.mainloop()
 
 

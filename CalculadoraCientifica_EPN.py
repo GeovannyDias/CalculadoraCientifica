@@ -1,7 +1,5 @@
-#eval() and exec() funciones predefinidas
-#v1=Toplevel(root) Ventana Hija #v1.withdraw()  # oculta v1
-#https://answers.microsoft.com/es-es/windows/forum/windows_7-windows_programs/funcion-de-los-botones-ms-m-m-mr-mc-ce-y-c-de-la/5caaf4b2-385a-e011-8dfc-68b599b31bf5
 #=========================================================================
+"""IMPORTAR LIBRERIA"""
 from distutils import command
 from tkinter import *
 from math import*
@@ -158,7 +156,6 @@ def btnResultado():
         if operador == "":
             btnClearDisplay()
         else:
-            print(evaluarFun)
             npa = operador.count('(')
             npc = operador.count(')')
             np = npa-npc
@@ -231,27 +228,27 @@ btn = Button(calLeft, bd=10, text='=', width=2, command=lambda: btnResultado()).
                                 #BOTONES TRIGONOMETRICOS
 #==========================================================================================
 #BOTONES TRIGONOMETRICOS
-btn = Button(calRight, bd=10, text='(', width=4, command=lambda: btnParentesis('(')).grid(row=0, column=0)
-btn = Button(calRight, bd=10, text=')', width=4, command=lambda: btnParentesis(')')).grid(row=0, column=1)
-btn = Button(calRight, bd=10, text='%', width=4, command=lambda: btnPorcentaje('%')).grid(row=0, column=2)
+btnParA = Button(calRight, bd=10, text='(', width=4, command=lambda: btnParentesis('(')).grid(row=0, column=0)
+btnParC = Button(calRight, bd=10, text=')', width=4, command=lambda: btnParentesis(')')).grid(row=0, column=1)
+btnPor = Button(calRight, bd=10, text='%', width=4, command=lambda: btnPorcentaje('%')).grid(row=0, column=2)
 
-btn = Button(calRight, bd=10, text='Sin', width=4, command=lambda: btnFunTrigonometrica('sin(radians(')).grid(row=1, column=0)
-btn = Button(calRight, bd=10, text='aSin', width=4, command=lambda: btnFunTrigonometrica('degrees(asin(')).grid(row=1, column=1)
-btn = Button(calRight, bd=10, text='X²', width=4, command=lambda: btnClick('**2')).grid(row=1, column=2)
+btnSen = Button(calRight, bd=10, text='Sin', width=4, command=lambda: btnFunTrigonometrica('sin(radians(')).grid(row=1, column=0)
+btnSenh = Button(calRight, bd=10, text='aSin', width=4, command=lambda: btnFunTrigonometrica('degrees(asin(')).grid(row=1, column=1)
+btneXP = Button(calRight, bd=10, text='X²', width=4, command=lambda: btnClick('**2')).grid(row=1, column=2)
 
-btn = Button(calRight, bd=10, text='Cos', width=4, command=lambda: btnFunTrigonometrica('cos(radians(')).grid(row=2, column=0)
-btn = Button(calRight, bd=10, text='aCos', width=4, command=lambda: btnFunTrigonometrica('degrees(acos(')).grid(row=2, column=1)
-btn = Button(calRight, bd=10, text='X³', width=4, command=lambda: btnClick('**3')).grid(row=2, column=2)
+btnCos = Button(calRight, bd=10, text='Cos', width=4, command=lambda: btnFunTrigonometrica('cos(radians(')).grid(row=2, column=0)
+btnCosh = Button(calRight, bd=10, text='aCos', width=4, command=lambda: btnFunTrigonometrica('degrees(acos(')).grid(row=2, column=1)
+btnCubo = Button(calRight, bd=10, text='X³', width=4, command=lambda: btnClick('**3')).grid(row=2, column=2)
 
-btn = Button(calRight, bd=10, text='Tan', width=4, command=lambda: btnFunTrigonometrica('tan(radians(')).grid(row=3, column=0)
-btn = Button(calRight, bd=10, text='aTan', width=4, command=lambda: btnFunTrigonometrica('degrees(atan(')).grid(row=3, column=1)
-btn = Button(calRight, bd=10, text='X^y', width=4, command=lambda: btnClick('**')).grid(row=3, column=2)
+btnTan = Button(calRight, bd=10, text='Tan', width=4, command=lambda: btnFunTrigonometrica('tan(radians(')).grid(row=3, column=0)
+btnTanh = Button(calRight, bd=10, text='aTan', width=4, command=lambda: btnFunTrigonometrica('degrees(atan(')).grid(row=3, column=1)
+btnPot = Button(calRight, bd=10, text='X^y', width=4, command=lambda: btnClick('**')).grid(row=3, column=2)
 
 #BOTONES CONFIG
-btn = Button(calRight, bd=10, text='MC', width=4, command=lambda: btnMemoria('MC')).grid(row=0, column=3)
-btn = Button(calRight, bd=10, text='MR', width=4, command=lambda: btnMemoria('MR')).grid(row=1, column=3)
-btn = Button(calRight, bd=10, text='MS', width=4, command=lambda: btnMemoria('MS')).grid(row=2, column=3)
-btn = Button(calRight, bd=10, text='M+', width=4, command=lambda: btnMemoria('M+')).grid(row=3, column=3)
+btnMem = Button(calRight, bd=10, text='MC', width=4, command=lambda: btnMemoria('MC')).grid(row=0, column=3)
+btnMem2 = Button(calRight, bd=10, text='MR', width=4, command=lambda: btnMemoria('MR')).grid(row=1, column=3)
+btnMem3 = Button(calRight, bd=10, text='MS', width=4, command=lambda: btnMemoria('MS')).grid(row=2, column=3)
+btnMem4 = Button(calRight, bd=10, text='M+', width=4, command=lambda: btnMemoria('M+')).grid(row=3, column=3)
 
 btn = Button(calRight, bd=10, text='Log', width=4, command=lambda: btnFunTrigonometrica('log10(')).grid(row=4, column=0)
 btn = Button(calRight, bd=10, text='π', command=lambda: btnClick(pi), width=4).grid(row=4, column=1)
@@ -271,12 +268,5 @@ root.mainloop()
 
 
 
-
-
-
-#LAS FUNCIONES SEN, COS, TAN, YA SE CALCULAN HAY QUE VALIDAR CUANDO CADA FUNCION TOMA VALOR DE
-#0,90,180,270,360 PARA CADA UNA DE ELLAS, Y ADEMAS FALTA LA VALIDADCION DE QUE DESPUES DE INGRESAR
-#UNA FUNCION TRIGONOMETRICA Y QUE DE EL RESULTADO, AL MOMETNO DE APLASTAR UN NUMERO NO MARQUE NUEVAMENETE LA FUNCION
-#PARA QUE ENTIENDAN MEJOR PRIMERO EJECUTEN UNA FUNCION TRIGONOMETRICA, LUEGO UNA SUMA Y VERAN LO QUE PASA
 
 

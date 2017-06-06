@@ -118,8 +118,8 @@ btnCer = Button(cal, bd =9 , text= 0,relief="groove", command=lambda:BtnOperacio
 btnSen = Button(cal, bd =7 , text= 'sin(',relief="groove", command=lambda:otr('sen(')).grid(row=4,column=1)
 btnCos = Button(cal, bd =7 , text= 'cos(',relief="groove", command=lambda:otr('cos(')).grid(row=4,column=2)
 btnTan = Button(cal, bd =7 , text= 'tan(',relief="groove", command=lambda:otr('tan(')).grid(row=4,column=3)
-btnTan = Button(cal, bd =7 , text= 'sen-1(',relief="groove", command=lambda:otr('tan-1')).grid(row=5,column=1)
-btnTan = Button(cal, bd =7 , text= 'tan-1(',relief="groove", command=lambda:otr('tan-1')).grid(row=5,column=1)
+btnTan = Button(cal, bd =7 , text= 'sen-1(',relief="groove", command=lambda:otr('sen-1')).grid(row=5,column=1)
+btnTan = Button(cal, bd =7 , text= 'cos-1(',relief="groove", command=lambda:otr('cos-1')).grid(row=5,column=2)
 btnIgual = Button(cal, bd =9.5, text= '=', relief="groove",command=btnResultado).grid(row=4,column=4)
 cal.mainloop()
 

@@ -93,11 +93,16 @@ def btnFunTrigonometrica(tecla):
     btnClick(tecla)
     evaluarFun = True
 
+def btnRaiz(tecla):
+    global evaluarFun
+    btnClick(tecla)
+    evaluarFun = True
+
 def btnPorcentaje(tecla):
     global operador
     global validar
     try:
-        aux = int(operador)/100
+        aux = float(operador)/100
         operador +=str(tecla)
         text_Input.set(operador)
         operador=str(aux)
@@ -221,7 +226,7 @@ btn = Button(calLeft, bd=10, text='2', width=2, command=lambda: btnClick('2')).g
 btn = Button(calLeft, bd=10, text='1', width=2, command=lambda: btnClick('1')).grid(row=2, column=2)
 btn = Button(calLeft, bd=10, text='0', width=2, command=lambda: btnClick('0')).grid(row=3, column=0)
 btn = Button(calLeft, bd=10, text='.', width=2, command=lambda: btnClick('.')).grid(row=3, column=1)
-btn = Button(calLeft, bd=10, text='√', width=2, command=lambda: btnClick('sqrt(')).grid(row=3, column=2)
+btn = Button(calLeft, bd=10, text='√', width=2, command=lambda: btnRaiz('sqrt(')).grid(row=3, column=2)
 #BOTONES OPERADORES
 btn = Button(calLeft, bd=10, text='/', width=2, command=lambda: btnClick('/')).grid(row=0, column=3)
 btn = Button(calLeft, bd=10, text='*', width=2, command=lambda: btnClick('*')).grid(row=1, column=3)
